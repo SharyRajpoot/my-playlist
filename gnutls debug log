@@ -1,0 +1,679 @@
++ scriptversion=2019-01-04.17
++ nl='
+'
++ LC_ALL=C
++ export LC_ALL
++ unset CDPATH
++ local_gl_dir=gl
++ PERL=perl
++ me=./bootstrap
++ default_gnulib_url=git://git.sv.gnu.org/gnulib
++ gnulib_mk=gnulib.mk
++ gnulib_modules=
++ gnulib_files=
++ : autopoint
++ : autoreconf
++ po_download_command_format='wget --mirror --level=1 -nd -q -A.po -P '\''%s'\''  https://translationproject.org/latest/%s/'
++ extract_package_name='
+  /^AC_INIT(\[*/{
+     s///
+     /^[^,]*,[^,]*,[^,]*,[ []*\([^][ ,)]\)/{
+       s//\1/
+       s/[],)].*//
+       p
+       q
+     }
+     s/[],)].*//
+     s/^GNU //
+     y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
+     s/[^abcdefghijklmnopqrstuvwxyz0123456789_]/-/g
+     p
+  }
+'
+++ sed -n '
+  /^AC_INIT(\[*/{
+     s///
+     /^[^,]*,[^,]*,[^,]*,[ []*\([^][ ,)]\)/{
+       s//\1/
+       s/[],)].*//
+       p
+       q
+     }
+     s/[],)].*//
+     s/^GNU //
+     y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
+     s/[^abcdefghijklmnopqrstuvwxyz0123456789_]/-/g
+     p
+  }
+' configure.ac
++ package=gnutls
++ gnulib_name=libgnutls
++ build_aux=build-aux
++ source_base=lib
++ m4_base=m4
++ doc_base=doc
++ tests_base=tests
++ gnulib_extra_files='
+        build-aux/install-sh
+        build-aux/mdate-sh
+        build-aux/texinfo.tex
+        build-aux/depcomp
+        build-aux/config.guess
+        build-aux/config.sub
+        doc/INSTALL
+'
++ gnulib_tool_option_extras=
++ EXTRA_LOCALE_CATEGORIES=
++ XGETTEXT_OPTIONS='\\\
+ --flag=_:1:pass-c-format\\\
+ --flag=N_:1:pass-c-format\\\
+ --flag=error:3:c-format --flag=error_at_line:5:c-format\\\
+'
++ COPYRIGHT_HOLDER='Free Software Foundation, Inc.'
++ MSGID_BUGS_ADDRESS=bug-gnutls@gnu.org
++ excluded_files=
++ checkout_only_file=README-hacking
++ copy=false
++ vc_ignore=auto
++ bootstrap_sync=false
++ use_git=true
++ case "$0" in
++ test -r ./bootstrap.conf
++ . ./bootstrap.conf
+++ source_base=gl
+++ tests_base=gl/tests
+++ m4_base=m4
+++ gnulib_name=libgnu
+++ gnulib_tool_option_extras='--with-tests --avoid=alignof-tests --avoid=lock-tests --avoid=lseek-tests --lgpl=2'
+++ use_libtool=1
+++ checkout_only_file=
+++ local_gl_dir=gl/override/
+++ required_submodules='tests/suite/tls-fuzzer/python-ecdsa tests/suite/tls-fuzzer/tlsfuzzer tests/suite/tls-fuzzer/tlslite-ng devel/nettle devel/libtasn1'
+++ gnulib_modules='
+alloca attribute byteswap c-ctype c-strcase extensions fopen-gnu func gendocs getline gettext-h gettimeofday hash hash-pjw-bare havelib arpa_inet inet_ntop inet_pton intprops ldd lib-msvc-compat lib-symbol-versions maintainer-makefile manywarnings memmem-simple minmax netdb netinet_in pmccabe2html read-file secure_getenv setsockopt snprintf stdint strcase strdup-posix strndup strtok_r strverscmp sys_socket sys_stat sys_types threadlib time_r unistd valgrind-tests vasprintf verify vsnprintf warnings
+'
+++ unistring_modules='
+unictype/category-all unictype/property-default-ignorable-code-point unictype/property-join-control unictype/property-not-a-character uninorm/nfc uninorm/nfkc uninorm/u16-normalize uninorm/u32-normalize uninorm/u8-normalize unistr/u16-to-u8 unistr/u32-to-u8 unistr/u8-check unistr/u8-to-u16 unistr/u8-to-u32
+'
+++ src_modules='
+accept bind close connect getaddrinfo getpass gettext-h arpa_inet inet_ntop inet_pton listen minmax parse-datetime progname read-file recv recvfrom select send sendto servent setsockopt shutdown socket sockets socklen inttypes
+'
+++ buildreq='autoconf   2.62
+automake   1.11.1
+gettext    0.17
+git        1.4.4
+perl       5.5
+gperf      -
+autopoint  -
+autogen    -
+'
++++ which gtkdocize
+++ GTKDOCIZE=/usr/bin/gtkdocize
+++ test 0 -ne 0
+++ /usr/bin/gtkdocize
+++ git_options=
+++ test -n ''
+++ for mod in $required_submodules
+++ git submodule update --init tests/suite/tls-fuzzer/python-ecdsa
+++ for mod in $required_submodules
+++ git submodule update --init tests/suite/tls-fuzzer/tlsfuzzer
+++ for mod in $required_submodules
+++ git submodule update --init tests/suite/tls-fuzzer/tlslite-ng
+++ for mod in $required_submodules
+++ git submodule update --init devel/nettle
+++ for mod in $required_submodules
+++ git submodule update --init devel/libtasn1
+++ test -d ./gnulib
+++ TMP_GNULIB_SRCDIR=./gnulib/
++++ ./gnulib//gnulib-tool --extract-recursive-dependencies alloca attribute byteswap c-ctype c-strcase extensions fopen-gnu func gendocs getline gettext-h gettimeofday hash hash-pjw-bare havelib arpa_inet inet_ntop inet_pton intprops ldd lib-msvc-compat lib-symbol-versions maintainer-makefile manywarnings memmem-simple minmax netdb netinet_in pmccabe2html read-file secure_getenv setsockopt snprintf stdint strcase strdup-posix strndup strtok_r strverscmp sys_socket sys_stat sys_types threadlib time_r unistd valgrind-tests vasprintf verify vsnprintf warnings
+./bootstrap.conf: line 79: ./gnulib//gnulib-tool: No such file or directory
+++ deps=
+++ deps='echo -n
+alloca attribute byteswap c-ctype c-strcase extensions fopen-gnu func gendocs getline gettext-h gettimeofday hash hash-pjw-bare havelib arpa_inet inet_ntop inet_pton intprops ldd lib-msvc-compat lib-symbol-versions maintainer-makefile manywarnings memmem-simple minmax netdb netinet_in pmccabe2html read-file secure_getenv setsockopt snprintf stdint strcase strdup-posix strndup strtok_r strverscmp sys_socket sys_stat sys_types threadlib time_r unistd valgrind-tests vasprintf verify vsnprintf warnings
+|sort -u'
+++ case ${deps} in
++ test auto = auto
++ vc_ignore=
++ test -d .git
++ vc_ignore=.gitignore
++ test -d CVS
++ test 'x
+alloca attribute byteswap c-ctype c-strcase extensions fopen-gnu func gendocs getline gettext-h gettimeofday hash hash-pjw-bare havelib arpa_inet inet_ntop inet_pton intprops ldd lib-msvc-compat lib-symbol-versions maintainer-makefile manywarnings memmem-simple minmax netdb netinet_in pmccabe2html read-file secure_getenv setsockopt snprintf stdint strcase strdup-posix strndup strtok_r strverscmp sys_socket sys_stat sys_types threadlib time_r unistd valgrind-tests vasprintf verify vsnprintf warnings
+
+        build-aux/install-sh
+        build-aux/mdate-sh
+        build-aux/texinfo.tex
+        build-aux/depcomp
+        build-aux/config.guess
+        build-aux/config.sub
+        doc/INSTALL
+' = x
++ use_gnulib=true
++ true
++ test -n ''
++ found_aux_dir=no
++ grep '^[       ]*AC_CONFIG_AUX_DIR(\[build-aux\])' configure.ac
++ found_aux_dir=yes
++ grep '^[       ]*AC_CONFIG_AUX_DIR(build-aux)' configure.ac
++ test yes = yes
++ test '!' -d build-aux
++ get_version_sed='
+# Move version to start of line.
+s/.*[v ]\([0-9]\)/\1/
+
+# Skip lines that do not start with version.
+/^[0-9]/!d
+
+# Remove characters after the version.
+s/[^.a-z0-9-].*//
+
+# The first component must be digits only.
+s/^\([0-9]*\)[a-z-].*/\1/
+
+#the following essentially does s/5.005/5.5/
+s/\.0*\([1-9]\)/.\1/g
+p
+q'
++ test x = x
++ find_tool SHA1SUM sha1sum gsha1sum shasum sha1
++ find_tool_envvar=SHA1SUM
++ shift
++ find_tool_names='sha1sum gsha1sum shasum sha1'
++ eval 'find_tool_res=$SHA1SUM'
+++ find_tool_res=
++ test x = x
++ for i in "$@"
++ check_exists sha1sum
++ test sha1sum = --verbose
++ test 0 -lt 126
++ find_tool_res=sha1sum
++ break
++ test xsha1sum = x
++ eval 'SHA1SUM=$find_tool_res'
+++ SHA1SUM=sha1sum
++ eval 'export SHA1SUM'
+++ export SHA1SUM
++ use_libtool=0
++ grep '^[       ]*A[CM]_PROG_LIBTOOL' configure.ac
++ grep '^[       ]*LT_INIT' configure.ac
++ use_libtool=1
++ test 1 = 1
++ find_tool LIBTOOLIZE glibtoolize libtoolize
++ find_tool_envvar=LIBTOOLIZE
++ shift
++ find_tool_names='glibtoolize libtoolize'
++ eval 'find_tool_res=$LIBTOOLIZE'
+++ find_tool_res=
++ test x = x
++ for i in "$@"
++ check_exists glibtoolize
++ test glibtoolize = --verbose
++ test 127 -lt 126
++ for i in "$@"
++ check_exists libtoolize
++ test libtoolize = --verbose
++ test 0 -lt 126
++ find_tool_res=libtoolize
++ break
++ test xlibtoolize = x
++ eval 'LIBTOOLIZE=$find_tool_res'
+++ LIBTOOLIZE=libtoolize
++ eval 'export LIBTOOLIZE'
+++ export LIBTOOLIZE
++ case $buildreq in
++ case $buildreq in
++ test -d gl/override/
++ find gl/override/ -name '*.diff' -exec false '{}' +
++ case $buildreq in
++ buildreq='patch -
+autoconf   2.62
+automake   1.11.1
+gettext    0.17
+git        1.4.4
+perl       5.5
+gperf      -
+autopoint  -
+autogen    -
+'
++ printf 'patch -
+autoconf   2.62
+automake   1.11.1
+gettext    0.17
+git        1.4.4
+perl       5.5
+gperf      -
+autopoint  -
+autogen    -
++ check_versions
+'
++ ret=0
++ read app req_ver
++ test patch = libtool
++ test patch = git
+++ echo patch
+++ LC_ALL=C
+++ tr '[a-z]-' '[A-Z]_'
++ appvar=PATCH
++ test PATCH = TAR
++ case $appvar in
++ eval 'app=${PATCH-patch}'
+++ app=patch
++ case $app in
++ '[' - = - ']'
++ check_exists --verbose patch
++ test --verbose = --verbose
++ test 0 -ge 126
++ test 0 -lt 126
++ read app req_ver
++ test autoconf = libtool
++ test autoconf = git
+++ echo autoconf
+++ LC_ALL=C
+++ tr '[a-z]-' '[A-Z]_'
++ appvar=AUTOCONF
++ test AUTOCONF = TAR
++ case $appvar in
++ eval 'app=${AUTOCONF-autoconf}'
+++ app=autoconf
++ case $app in
++ '[' 2.62 = - ']'
+++ get_version autoconf
+++ app=autoconf
+++ autoconf --version
+++ autoconf --version
+++ sed -n '
+# Move version to start of line.
+s/.*[v ]\([0-9]\)/\1/
+
+# Skip lines that do not start with version.
+/^[0-9]/!d
+
+# Remove characters after the version.
+s/[^.a-z0-9-].*//
+
+# The first component must be digits only.
+s/^\([0-9]*\)[a-z-].*/\1/
+
+#the following essentially does s/5.005/5.5/
+s/\.0*\([1-9]\)/.\1/g
+p
+q'
++ inst_ver=2.69
++ '[' '!' 2.69 ']'
+++ sort_ver 2.62 2.69
+++ ver1=2.62
+++ ver2=2.69
+++ i=1
+++ :
+++ cut '-d ' -f2
++++ echo 2.62
++++ cut -d. -f1
+++ p1=2
++++ echo 2.69
++++ cut -d. -f1
+++ p2=2
+++ '[' '!' 2 ']'
+++ '[' '!' 2 ']'
+++ '[' '!' 2 = 2 ']'
+++ i=2
+++ :
++++ echo 2.62
++++ cut -d. -f2
+++ p1=62
++++ echo 2.69
++++ cut -d. -f2
+++ p2=69
+++ '[' '!' 62 ']'
+++ '[' '!' 69 ']'
+++ '[' '!' 62 = 69 ']'
+++ '[' 62 -gt 69 ']'
+++ '[' 69 -gt 62 ']'
+++ echo '2.62 2.69'
+++ break
++ latest_ver=2.69
++ '[' '!' 2.69 = 2.69 ']'
++ read app req_ver
++ test automake = libtool
++ test automake = git
+++ echo automake
+++ LC_ALL=C
+++ tr '[a-z]-' '[A-Z]_'
++ appvar=AUTOMAKE
++ test AUTOMAKE = TAR
++ case $appvar in
++ eval 'app=${AUTOMAKE-automake}'
+++ app=automake
++ case $app in
++ '[' 1.11.1 = - ']'
+++ get_version automake
+++ app=automake
+++ automake --version
+++ automake --version
+++ sed -n '
+# Move version to start of line.
+s/.*[v ]\([0-9]\)/\1/
+
+# Skip lines that do not start with version.
+/^[0-9]/!d
+
+# Remove characters after the version.
+s/[^.a-z0-9-].*//
+
+# The first component must be digits only.
+s/^\([0-9]*\)[a-z-].*/\1/
+
+#the following essentially does s/5.005/5.5/
+s/\.0*\([1-9]\)/.\1/g
+p
+q'
++ inst_ver=1.16.1
++ '[' '!' 1.16.1 ']'
+++ sort_ver 1.11.1 1.16.1
+++ ver1=1.11.1
+++ ver2=1.16.1
+++ i=1
+++ :
+++ cut '-d ' -f2
++++ echo 1.11.1
++++ cut -d. -f1
+++ p1=1
++++ echo 1.16.1
++++ cut -d. -f1
+++ p2=1
+++ '[' '!' 1 ']'
+++ '[' '!' 1 ']'
+++ '[' '!' 1 = 1 ']'
+++ i=2
+++ :
++++ echo 1.11.1
++++ cut -d. -f2
+++ p1=11
++++ echo 1.16.1
++++ cut -d. -f2
+++ p2=16
+++ '[' '!' 11 ']'
+++ '[' '!' 16 ']'
+++ '[' '!' 11 = 16 ']'
+++ '[' 11 -gt 16 ']'
+++ '[' 16 -gt 11 ']'
+++ echo '1.11.1 1.16.1'
+++ break
++ latest_ver=1.16.1
++ '[' '!' 1.16.1 = 1.16.1 ']'
++ read app req_ver
++ test gettext = libtool
++ test gettext = git
+++ echo gettext
+++ LC_ALL=C
+++ tr '[a-z]-' '[A-Z]_'
++ appvar=GETTEXT
++ test GETTEXT = TAR
++ case $appvar in
++ eval 'app=${GETTEXT-gettext}'
+++ app=gettext
++ case $app in
++ '[' 0.17 = - ']'
+++ get_version gettext
+++ app=gettext
+++ gettext --version
+++ gettext --version
+++ sed -n '
+# Move version to start of line.
+s/.*[v ]\([0-9]\)/\1/
+
+# Skip lines that do not start with version.
+/^[0-9]/!d
+
+# Remove characters after the version.
+s/[^.a-z0-9-].*//
+
+# The first component must be digits only.
+s/^\([0-9]*\)[a-z-].*/\1/
+
+#the following essentially does s/5.005/5.5/
+s/\.0*\([1-9]\)/.\1/g
+p
+q'
++ inst_ver=0.19.8.1
++ '[' '!' 0.19.8.1 ']'
+++ sort_ver 0.17 0.19.8.1
+++ ver1=0.17
+++ ver2=0.19.8.1
+++ i=1
+++ cut '-d ' -f2
+++ :
++++ echo 0.17
++++ cut -d. -f1
+++ p1=0
++++ echo 0.19.8.1
++++ cut -d. -f1
+++ p2=0
+++ '[' '!' 0 ']'
+++ '[' '!' 0 ']'
+++ '[' '!' 0 = 0 ']'
+++ i=2
+++ :
++++ echo 0.17
++++ cut -d. -f2
+++ p1=17
++++ echo 0.19.8.1
++++ cut -d. -f2
+++ p2=19
+++ '[' '!' 17 ']'
+++ '[' '!' 19 ']'
+++ '[' '!' 17 = 19 ']'
+++ '[' 17 -gt 19 ']'
+++ '[' 19 -gt 17 ']'
+++ echo '0.17 0.19.8.1'
+++ break
++ latest_ver=0.19.8.1
++ '[' '!' 0.19.8.1 = 0.19.8.1 ']'
++ read app req_ver
++ test git = libtool
++ test git = git
++ true
+++ echo git
+++ LC_ALL=C
+++ tr '[a-z]-' '[A-Z]_'
++ appvar=GIT
++ test GIT = TAR
++ case $appvar in
++ eval 'app=${GIT-git}'
+++ app=git
++ case $app in
++ '[' 1.4.4 = - ']'
+++ get_version git
+++ app=git
+++ git --version
+++ git --version
+++ sed -n '
+# Move version to start of line.
+s/.*[v ]\([0-9]\)/\1/
+
+# Skip lines that do not start with version.
+/^[0-9]/!d
+
+# Remove characters after the version.
+s/[^.a-z0-9-].*//
+
+# The first component must be digits only.
+s/^\([0-9]*\)[a-z-].*/\1/
+
+#the following essentially does s/5.005/5.5/
+s/\.0*\([1-9]\)/.\1/g
+p
+q'
++ inst_ver=2.25.1
++ '[' '!' 2.25.1 ']'
+++ sort_ver 1.4.4 2.25.1
+++ ver1=1.4.4
+++ ver2=2.25.1
+++ i=1
+++ cut '-d ' -f2
+++ :
++++ echo 1.4.4
++++ cut -d. -f1
+++ p1=1
++++ echo 2.25.1
++++ cut -d. -f1
+++ p2=2
+++ '[' '!' 1 ']'
+++ '[' '!' 2 ']'
+++ '[' '!' 1 = 2 ']'
+++ '[' 1 -gt 2 ']'
+++ '[' 2 -gt 1 ']'
+++ echo '1.4.4 2.25.1'
+++ break
++ latest_ver=2.25.1
++ '[' '!' 2.25.1 = 2.25.1 ']'
++ read app req_ver
++ test perl = libtool
++ test perl = git
+++ echo perl
+++ LC_ALL=C
+++ tr '[a-z]-' '[A-Z]_'
++ appvar=PERL
++ test PERL = TAR
++ case $appvar in
++ eval 'app=${PERL-perl}'
+++ app=perl
++ case $app in
++ '[' 5.5 = - ']'
+++ get_version perl
+++ app=perl
+++ perl --version
+++ perl --version
+++ sed -n '
+# Move version to start of line.
+s/.*[v ]\([0-9]\)/\1/
+
+# Skip lines that do not start with version.
+/^[0-9]/!d
+
+# Remove characters after the version.
+s/[^.a-z0-9-].*//
+
+# The first component must be digits only.
+s/^\([0-9]*\)[a-z-].*/\1/
+
+#the following essentially does s/5.005/5.5/
+s/\.0*\([1-9]\)/.\1/g
+p
+q'
++ inst_ver=5.30.0
++ '[' '!' 5.30.0 ']'
+++ sort_ver 5.5 5.30.0
+++ ver1=5.5
+++ ver2=5.30.0
+++ i=1
+++ cut '-d ' -f2
+++ :
++++ echo 5.5
++++ cut -d. -f1
+++ p1=5
++++ echo 5.30.0
++++ cut -d. -f1
+++ p2=5
+++ '[' '!' 5 ']'
+++ '[' '!' 5 ']'
+++ '[' '!' 5 = 5 ']'
+++ i=2
+++ :
++++ echo 5.5
++++ cut -d. -f2
+++ p1=5
++++ echo 5.30.0
++++ cut -d. -f2
+++ p2=30
+++ '[' '!' 5 ']'
+++ '[' '!' 30 ']'
+++ '[' '!' 5 = 30 ']'
+++ '[' 5 -gt 30 ']'
+++ '[' 30 -gt 5 ']'
+++ echo '5.5 5.30.0'
+++ break
++ latest_ver=5.30.0
++ '[' '!' 5.30.0 = 5.30.0 ']'
++ read app req_ver
++ test gperf = libtool
++ test gperf = git
+++ echo gperf
+++ LC_ALL=C
+++ tr '[a-z]-' '[A-Z]_'
++ appvar=GPERF
++ test GPERF = TAR
++ case $appvar in
++ eval 'app=${GPERF-gperf}'
+++ app=gperf
++ case $app in
++ '[' - = - ']'
++ check_exists --verbose gperf
++ test --verbose = --verbose
++ test 0 -ge 126
++ test 0 -lt 126
++ read app req_ver
++ test autopoint = libtool
++ test autopoint = git
+++ echo autopoint
+++ LC_ALL=C
+++ tr '[a-z]-' '[A-Z]_'
++ appvar=AUTOPOINT
++ test AUTOPOINT = TAR
++ case $appvar in
++ eval 'app=${AUTOPOINT-autopoint}'
+++ app=autopoint
++ case $app in
++ '[' - = - ']'
++ check_exists --verbose autopoint
++ test --verbose = --verbose
++ test 0 -ge 126
++ test 0 -lt 126
++ read app req_ver
++ test autogen = libtool
++ test autogen = git
+++ echo autogen
+++ LC_ALL=C
+++ tr '[a-z]-' '[A-Z]_'
++ appvar=AUTOGEN
++ test AUTOGEN = TAR
++ case $appvar in
++ eval 'app=${AUTOGEN-autogen}'
+++ app=autogen
++ case $app in
++ '[' - = - ']'
++ check_exists --verbose autogen
++ test --verbose = --verbose
+./bootstrap: line 250:  3090 Aborted                 (core dumped) ( $2 --version < /dev/null ) > /dev/null 2>&1
++ test 134 -ge 126
++ autogen --version
+Wrong __data_start/_end pair
+./bootstrap: line 254:  3091 Aborted                 (core dumped) ( $2 --version < /dev/null )
++ test 134 -lt 126
++ warn_ 'Error: '\''autogen'\'' not found'
++ case $IFS in
++ warnf_ '%s\n' 'Error: '\''autogen'\'' not found'
++ warnf_format_='%s\n'
++ shift
++ nl='
+'
++ case $* in
++ printf './bootstrap: %s\n' 'Error: '\''autogen'\'' not found'
+./bootstrap: Error: 'autogen' not found
++ ret=1
++ read app req_ver
++ return 1
++ echo
+
++ test -f README-prereq
++ die 'Please install the prerequisite programs'
++ warn_ 'Please install the prerequisite programs'
++ case $IFS in
++ warnf_ '%s\n' 'Please install the prerequisite programs'
++ warnf_format_='%s\n'
++ shift
++ nl='
+'
++ case $* in
++ printf './bootstrap: %s\n' 'Please install the prerequisite programs'
+./bootstrap: Please install the prerequisite programs
++ exit 1
